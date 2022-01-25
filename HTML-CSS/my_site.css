@@ -578,9 +578,17 @@ header {
 
 nav {
   width: 1024px;
+  height: 70px;
+  display: flex;
 }
 
-main {}
+.nav-logo img {
+  height: 70px;
+}
+
+.nav-list {
+  display: flex;
+}
 
 footer {
   width: 100%;
