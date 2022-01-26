@@ -569,6 +569,13 @@ textarea,
 /* END of Reset CSS */
 
 
+a:link {
+  color: #fafafa;
+  text-decoration: none;
+}
+a:visited {color: #000080;}
+a:hover {color: #a200ff;}
+a:active {color: #ff8000;}
 
 header {
   width: 100%;
@@ -592,6 +599,7 @@ nav {
 
 .nav-list-item {
   padding: 0 10px;
+  color: #fafafa;
 }
 
 footer {
