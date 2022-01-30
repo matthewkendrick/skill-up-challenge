@@ -625,6 +625,11 @@ h1 .section-title::after {
   top: 0;
 }
 
+.section-text {
+  text-align: center;
+  margin: 30px auto;
+}
+
 .border {
   width: 100px;
   height: 20px;
@@ -643,13 +648,33 @@ h1 .section-title::after {
   height: 250px;
 }
 
-.portfolio-text {
-  text-align: center;
-}
-
 .feature-items {
   display: flex;
 }
+
+.feature-item-1, .feature-item-2, .feature-item-3 {
+  width: 320px;
+}
+
+.feature-item-2 {
+  margin: 0 10px;
+}
+
+.icon {
+  font-size: 60px;
+}
+
+.icon-title {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.feature-item-text {
+  height: auto;
+  font-size: 16px;
+  text-align: left;
+}
+
 
 footer {
   width: 100%;
