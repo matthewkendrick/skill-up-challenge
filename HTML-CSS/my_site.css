@@ -580,6 +580,9 @@ a:hover {
 }
 a:active {color: #ff8000;}
 
+html {
+  font-size: 16px; 
+}
 header {
   width: max-content;
   background-color: #ec715f;
@@ -675,6 +678,15 @@ h1 .section-title::after {
   text-align: left;
 }
 
+.profile-card {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.profile-image, .profile-text {
+  width: 512px;
+  text-align: left;
+}
 
 footer {
   width: 100%;
