@@ -1,3 +1,4 @@
-let hello = "Hello World!!!";
+let str1 = 'Hello';
+let str2 = 'World';
 
-alert('hello');
+alert(str1 + ' ' + str2);
