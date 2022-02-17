@@ -1,11 +1,18 @@
 // 複数の関数を定義する
 let user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
-
+while ((user_hand != "グー") && (user_hand != "チョキ") && (user_hand != "パー") && (user_hand != null)) {
+  alert('グー / チョキ / パー のいずれかを入力してください。');
+  user_hand = prompt('じゃんけんの手をグー、チョキ、パーから選んでください。');
+}
 let js_hand = getJShand();
-
 let judge = winLose(user_hand, js_hand);
 
-alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' + judge + 'です。');
+
+if (user_hand != null) {
+  alert('あなたの選んだ手は' + user_hand + 'です。\nJavaScriptの選んだ手は' + js_hand + 'です。\n結果は' + judge + 'です。');
+} else {
+  alert('またチャレンジしてね')
+}
 
 function getJShand() {
   let js_hand_num = Math.floor( Math.random() * 3);
