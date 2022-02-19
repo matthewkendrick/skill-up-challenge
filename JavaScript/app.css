@@ -1,5 +1,6 @@
 .box1 {
-  display: none;
+  /* スライドダウンの時はコメントアウトを外す */
+  /* display: none;  */ 
   background-color: #ff0000;
   height: 200px;
   width: 200px;
