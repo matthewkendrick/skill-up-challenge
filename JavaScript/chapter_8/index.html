@@ -36,3 +36,544 @@
   </footer>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/051eb814e7.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<link rel="stylesheet" href="/css/common.min.css?v=3.6.4">
+<style type="text/css">
+</style>
+
+
+
+</head>
+<body>
+<div class="body-bg not-root bg_header02"></div>
+
+
+<section class="container cf">
+		<div class="calculation-page">
+	<div class="boxMain">
+					<div class="boxMainHeader">
+				<h3>賃貸物件 初期費用計算（契約金概算）</h3>
+			</div>
+			<p>このページでは下記の項目に任意の金額や数値を入力して賃貸物件の初期費用(契約金)の概算を計算する事が可能です。基本初期費用はほとんどの賃貸マンションやアパートなどでかかる費用となっております。さらに入居日や物件、お部屋によってかかってくる付帯費用など細かい変動初期費用も計算可能です。</p>
+<p>ここで計算できる初期費用の金額はあくまでも参考数値となっております。物件お部屋毎やそれぞれのエリアなどで計算方法などが異なる場合があり、制御しきれない項目もある為、実際の初期費用(契約金)とは異なりますので<span class="text-danger font-weight-bold">あくまで概算として</span>ご参考程度にご覧ください。</span></p>
+			<div class="mt10">
+				<script>
+					(adsbygoogle = window.adsbygoogle || []).push({});
+				</script>
+			</div>
+			</div>
+<div class="container">
+<div class="jumbotron mx-auto shadow">
+<div class="row">
+<div class="col-md-5">
+
+	<form action="/initial_cost/" novalidate="novalidate" id="RoomPostForm" method="post" accept-charset="utf-8"><div style="display:none;"><input type="hidden" name="_method" value="POST"/></div>		<div class="boxBuildingList">
+			<h3 class="heading heading-gray">基本初期費用</h3>
+			<p class="bg-gray-light p10 fs-xs">賃貸物件を契約する際、基本的に必要となる費用項目です。</p>
+			<div class="calculation-list">
+				<table class="table table-block" id="static-values">
+					<tbody>
+											<tr>
+							<th>賃料</th>
+							<td>
+							<input class="form-control" name="data[Room][price_room]" value="0" min="0" type="number" id="RoomPriceRoom" required="required"/>(円)							</td>
+						</tr>
+						<tr>
+							<th>管理費</th>
+							<td>
+							<input class="form-control"name="data[Room][price_admin]" value="0" min="0" type="number" id="RoomPriceAdmin" required="required"/> (円)							</td>
+						</tr>
+						<tr>
+							<th>敷金</th>
+							<td>
+							<input class="form-control"name="data[Room][price_deposit]" value="0" min="0" type="number" id="RoomPriceDeposit" required="required"/> ヶ月							<div class="mt4"><i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;<span>0</span> 円</div>
+							</td>
+						</tr>
+						<tr>
+							<th>礼金</th>
+							<td>
+							<input class="form-control"name="data[Room][price_thx]" value="0" min="0" type="number" id="RoomPriceThx" required="required"/> ヶ月							<div class="mt4"><i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;<span>0</span> 円</div>
+							</td>
+						</tr>
+						<tr>
+							<th>前家賃<span class="ml4 n">（賃料1ヶ月分）</span></th>
+							<td><i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;<span id="pre-price_room">0 円</span></td>
+						</tr>
+						<tr>
+							<th>前管理費<span class="ml4 n">（管理費1ヶ月分）</span></th>
+							<td><i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;<span id="pre-price_admin">0 円</span></td>
+						</tr>
+						<tr>
+							<th>仲介手数料<span class="ml4 n" data-field-mirror="campaign">（1ヶ月分 + 消費税）</span></th>
+							<td>
+							<div class="input select-control"><select name="data[Room][campaign]" id="RoomCampaign">
+<option value="1">0</option>
+<option value="2">0.5</option>
+<option value="3" selected="selected">1</option>
+</select> ヶ月</div><input type="hidden" name="data[Room][agent_charge]" value="0" id="RoomAgentCharge"/>							<div class="mt4"><i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;<span>0</span> 円</div>
+							</td>
+						</tr>
+											<tr class="calculation-list-total">
+							<th>① 基本初期費用合計</th>
+							<input type="hidden" name="data[Room][static_fee]" value="0" id="RoomStaticFee"/>							<td class="r b" data-result-static="0">0 円</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		</div>
+		</div>
+		</div>
+		</div>
+<div class="container">
+<div class="jumbotron mx-auto shadow boxBuildingList">
+<div class="row">
+<div class="col-md-5">
+			<h3 class="heading heading-gray">変動初期費用</h3>
+			<p class="bg-gray-light p10 fs-xs">部屋毎や入居時期によって異なる費用なので個別に入力します。</p>
+			<div class="calculation-list">
+				<table class="table table-block"  id="variable-values">
+					<tbody>
+						<tr>
+														<th>入居予定日</th>
+							<td>
+							<select class="text-secondary"name="data[Room][available_date][year]" id="RoomAvailableDateYear">
+<option value="2024">2024</option>
+<option value="2023">2023</option>
+<option value="2022" selected="selected">2022</option>
+</select><span style="vertical-align: center">&nbsp;&nbsp;年</span><br><br><select name="data[Room][available_date][month]" id="RoomAvailableDateMonth">
+<option value="01">01</option>
+<option value="02">02</option>
+<option value="03">03</option>
+<option value="04" selected="selected">04</option>
+<option value="05">05</option>
+<option value="06">06</option>
+<option value="07">07</option>
+<option value="08">08</option>
+<option value="09">09</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select><span style="vertical-align: center">&nbsp;&nbsp;月</span>&nbsp;<select name="data[Room][available_date][day]" id="RoomAvailableDateDay">
+<option value="01">1</option>
+<option value="02">2</option>
+<option value="03">3</option>
+<option value="04">4</option>
+<option value="05">5</option>
+<option value="06">6</option>
+<option value="07">7</option>
+<option value="08">8</option>
+<option value="09">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17" selected="selected">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+</select><span style="vertical-align: center">&nbsp;&nbsp;日</span>							</td>
+						</tr>
+						<tr>
+							<th>日割り賃料<span class="ml4 n" data-field-mirror="available_date">（入居予定日：2022年04月17日）</span></th>
+
+							<td>
+							<input type="hidden" name="data[Room][prorated_price]" value="0" id="RoomProratedPrice"/>								<i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;<span>0</span> 円
+							</td>
+													</tr>
+						<tr>
+							<th>日割り管理費<span class="ml4 n">（予定日は日割り賃料と同様）</span></th>
+							<td>
+							<input class="form-control"type="hidden" name="data[Room][prorated_price_admin]" value="0" id="RoomProratedPriceAdmin"/>								<i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;<span>0</span> 円
+							</td>
+													</tr>
+						<tr>
+							<th>保証会社初期費用<span class="ml4 n">（0~100%）</span></th>
+							<td>
+							<div class="input number"><input name="data[Room][warranty_ratio]" min="0" max="100" value="0" type="number" id="RoomWarrantyRatio"/> %</div><input type="hidden" name="data[Room][warranty_fee]" value="0" id="RoomWarrantyFee"/>							<div class="mt4"><i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;<span>0</span> 円</div>
+							</td>
+													</tr>
+						<tr>
+							<th>住宅保険<span class="ml4 n">（火災保険）</span></th>
+							<td>
+							<i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;
+							<input class="form-control" name="data[Room][insurance_fee]" min="0" value="0" type="number" id="RoomInsuranceFee"/> 円							</td>
+						</tr>
+						<tr>
+							<th>鍵交換費用</th>
+							<td>
+							<i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;
+							<input class="form-control" name="data[Room][key_exchange_fee]" min="0" value="0" type="number" id="RoomKeyExchangeFee"/> 円							</td>
+						</tr>
+						<tr>
+														<th>保証金<span class="ml4 n">（0~10ヶ月分）</span></th>
+							<td>
+							<div class="input select"><select name="data[Room][deposit_ratio]" id="RoomDepositRatio">
+<option value="0" selected="selected">0</option>
+<option value="1">0.5</option>
+<option value="2">1</option>
+<option value="3">1.5</option>
+<option value="4">2</option>
+<option value="5">2.5</option>
+<option value="6">3</option>
+<option value="7">3.5</option>
+<option value="8">4</option>
+<option value="9">4.5</option>
+<option value="10">5</option>
+<option value="11">5.5</option>
+<option value="12">6</option>
+<option value="13">6.5</option>
+<option value="14">7</option>
+<option value="15">7.5</option>
+<option value="16">8</option>
+<option value="17">8.5</option>
+<option value="18">9</option>
+<option value="19">9.5</option>
+<option value="20">10</option>
+</select> ヶ月</div><input type="hidden" name="data[Room][deposit_fee]" value="0" id="RoomDepositFee"/>							<div class="mt4"><i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;<span>0</span> 円</div>
+							</td>
+						</tr>
+						<tr>
+														<th>敷金積増し<span class="ml4 n">（0~10ヶ月分）</span></th>
+							<td>
+							<div class="input select"><select name="data[Room][deposit_widening_ratio]" id="RoomDepositWideningRatio">
+<option value="0" selected="selected">0</option>
+<option value="1">0.5</option>
+<option value="2">1</option>
+<option value="3">1.5</option>
+<option value="4">2</option>
+<option value="5">2.5</option>
+<option value="6">3</option>
+<option value="7">3.5</option>
+<option value="8">4</option>
+<option value="9">4.5</option>
+<option value="10">5</option>
+<option value="11">5.5</option>
+<option value="12">6</option>
+<option value="13">6.5</option>
+<option value="14">7</option>
+<option value="15">7.5</option>
+<option value="16">8</option>
+<option value="17">8.5</option>
+<option value="18">9</option>
+<option value="19">9.5</option>
+<option value="20">10</option>
+</select> ヶ月</div><input type="hidden" name="data[Room][deposit_widening_fee]" value="0" id="RoomDepositWideningFee"/>							<div class="mt4"><i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;<span>0</span> 円</div>
+							</td>
+						</tr>
+						<tr>
+							<th>24時間サポート<span class="ml4 n">（物件による）</span></th>
+							<td>
+							<i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;
+							<input name="data[Room][support_fee]" min="0" value="0" type="number" id="RoomSupportFee"/> 円							</td>
+						</tr>
+						<tr>
+							<th>事務手数料<span class="ml4 n">（物件による）</span></th>
+							<td>
+							<i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;
+							<input name="data[Room][expense_fee]" min="0" value="0" type="number" id="RoomExpenseFee"/> 円							</td>
+						</tr>
+						<tr>
+							<th>抗菌加工<span class="ml4 n">（物件による）</span></th>
+							<td>
+							<i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;
+							<input name="data[Room][antibacterial_fee]" min="0" value="0" type="number" id="RoomAntibacterialFee"/> 円							</td>
+						</tr>
+						<tr>
+							<th>クリーニング費用<span class="ml4 n">（初期に預かる場合もあり）</span></th>
+							<td>
+							<i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;
+							<input name="data[Room][cleaning_fee]" min="0" value="0" type="number" id="RoomCleaningFee"/> 円							</td>
+						</tr>
+						<tr>
+							<th>町内会費<span class="ml4 n">（物件による）</span></th>
+							<td>
+							<i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;
+							<input name="data[Room][resident_fee]" min="0" value="0" type="number" id="RoomResidentFee"/> 円							</td>
+						</tr>
+						<tr>
+							<th>その他<span class="ml4 n">（調整項目）</span></th>
+							<td>
+							<i class="fa fa-plus gray" aria-hidden="true"></i>&nbsp;
+							<input name="data[Room][other_fee]" value="0" type="number" id="RoomOtherFee"/> 円							</td>
+						</tr>
+						<tr class="calculation-list-total">
+							<th>② 変動初期費用合計</th>
+							<td class="r b" data-result-variable="0">0 円</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+				<div class="boxBuildingList calculation-total-box">
+			<div class="calculation-total">
+				<dl class="calculation-total-price">
+					<dt>① + ② 初期費用概算合計</dt>
+					<dd class="r tar" data-result-total="0">0 円</dd>
+				</dl>
+				<div class="border-top pt10 mt10 tac">
+					<div>
+						<span class="btn-outline">
+						<button class="btn btn-success btn-xl fs-md" type="submit">再計算する</button>						</span>
+					</div>
+					<div class="mt10">
+						<a href="/initial_cost/" class="btn btn-secondary fs-sm">リセットする</a>
+					</div>
+				</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+	</form>
+</div>
+
+<script>
+
+$(function(){
+	var salesTax = 0.1;
+	$(document).on('change', '.calculation-page input,select', function() {
+		if ($(this).val() == '') {
+			$(this).val(0);
+		} else {
+			if ($(this).val().match(/[^0-9\.]+/)) {
+				$(this).val(repNumDecp($(this).val()));
+			}
+		}
+		var table = $(this).parents('table');
+		var name = $(this).attr('name');
+		if (table.attr('id') === 'variable-values') {
+			var deposit = price('room');
+			switch(name) {
+				case 'data[Room][available_date][year]':
+				case 'data[Room][available_date][month]':
+				case 'data[Room][available_date][day]':
+					prorated();
+					break;
+				case 'data[Room][deposit_widening_ratio]':
+					deposit = deposit * price('deposit');
+				case 'data[Room][deposit_ratio]':
+					var deposit_price = Math.round($('select[name="' + name + '"]').val() * 0.5 * deposit);
+					$('input[name="' + name.replace('_ratio', '_fee') + '"]').val(deposit_price).parent('td').find('span').text(numberFormat(deposit_price));
+					break;
+				case 'data[Room][warranty_ratio]':
+					warranty($(this).val());
+					break;
+				default:
+					break;
+			}
+		}
+		if (table.attr('id') === 'static-values') {
+			var warrantyRatio = $('[name="data[Room][warranty_ratio]"]').val();
+			switch(name) {
+				case 'data[Room][price_thx]':
+					$(this).parent('td').find('span').text(numberFormat(Math.round($(this).val() * price('room'))));
+					break;
+				case 'data[Room][price_deposit]':
+					$(this).parent('td').find('span').text(numberFormat(Math.round($(this).val() * price('room'))));
+					depositChange()
+					break;
+				case 'data[Room][price_room]':
+					$('#pre-price_room').text(numberFormat($(this).val()) + ' 円');
+					$('[name="data[Room][price_deposit]"]').parent('td').find('span').text(numberFormat(Math.round(price('deposit') * $(this).val())));
+					$('[name="data[Room][price_thx]"]').parent('td').find('span').text(numberFormat(Math.round(price('thx') * $(this).val())));
+					agentCharge($(this).val(), $('select[name="data[Room][campaign]"]').val());
+					prorated();
+					warranty(warrantyRatio);
+					depositChange();
+					break;
+				case 'data[Room][price_admin]':
+					$('#pre-price_admin').text(numberFormat($(this).val()) + ' 円');
+					prorated();
+					warranty(warrantyRatio);
+					break;
+				case 'data[Room][campaign]':
+					agentCharge(price('room'), $(this).val());
+					break;
+			}
+		}
+		totalResult();
+		return;
+	});
+
+	function agentCharge(room, ratio) {
+		var campaignRatio = parseInt(ratio - 1) * 0.5;
+		$('span[data-field-mirror="campaign"]').text('（' + String(campaignRatio) + 'ヶ月分 + 消費税）');
+		// var agentCharge = Math.round((parseInt(room) + parseInt(admin)) * campaignRatio * (1 + salesTax));
+		var agentCharge = Math.round(parseInt(room) * campaignRatio * (1 + salesTax));
+		$('input[name="data[Room][agent_charge]"]').val(agentCharge).parent('td').find('span').text(numberFormat(agentCharge));
+		return;
+	}
+
+	function result(type) {
+		return parseInt($('[data-result-' + type + ']').data('result-' + type));
+	}
+
+	function price(type) {
+		return parseFloat($('input[name="data[Room][price_' + type + ']"]').val());
+	}
+
+	function numberFormat(num) {
+		return String(num).replace(/(\d)(?=(\d\d\d)+$)/g, '$1,');
+	}
+
+	function prorated() {
+		var Y = $('select[name="data[Room][available_date][year]"]').val();
+		var m = $('select[name="data[Room][available_date][month]"]').val();
+		var d = $('select[name="data[Room][available_date][day]"]').val();
+		var di = new Date(Y, m-1, d);
+		if (di.getFullYear() == Y && di.getMonth() == m-1 && di.getDate() == d) {
+			var daysThisMonth = new Date(Y, m, 0).getDate();
+			if (parseInt(d) === 1) {
+				var daysLeft = 0;
+			} else {
+				var daysLeft = parseInt(daysThisMonth) - parseInt(d) + 1;
+			}
+			var prorated_price = Math.round(beforeCeil(parseInt(price('room')) / parseInt(daysThisMonth)) * daysLeft);
+			var prorated_price_admin = Math.round(beforeCeil(parseInt(price('admin')) / parseInt(daysThisMonth)) * daysLeft);
+			$('input[name="data[Room][prorated_price]"]').val(prorated_price).parent('td').find('span').text(numberFormat(prorated_price));
+			$('input[name="data[Room][prorated_price_admin]"]').val(prorated_price_admin).parent('td').find('span').text(numberFormat(prorated_price_admin));
+			$('span[data-field-mirror="available_date"]').text('（入居予定日：' + Y + '年' + m + '月' + d + '日）');
+			return;
+		} else {
+			alert('日付が正しくありません。');
+			return false;
+		}
+	}
+
+	function warranty(ratio) {
+		var warranty_fee = Math.round((price('room') + price('admin')) * ratio / 100);
+		$('input[name="data[Room][warranty_fee]"]').val(warranty_fee).parent('td').find('span').text(numberFormat(warranty_fee));
+		return;
+	}
+
+	function depositChange() {
+		var price1 = Math.round($('select[name="data[Room][deposit_ratio]"]').val() * 0.5 * price('room'));
+		$('input[name="data[Room][deposit_fee]"]').val(price1).parent('td').find('span').text(numberFormat(price1));
+		var price2 = Math.round($('select[name="data[Room][deposit_widening_ratio]"]').val() * 0.5 * price('room') * price('deposit'));
+		$('input[name="data[Room][deposit_widening_fee]"]').val(price2).parent('td').find('span').text(numberFormat(price2));
+		return;
+	}
+
+	function totalResult() {
+		var rs = 0;
+		var rv = 0;
+		var rt = 0;
+		$('#variable-values').find('input').each(function() {
+			if ($(this).attr('name') !== 'data[Room][warranty_ratio]') {
+				rv = rv + parseInt($(this).val());
+			}
+		});
+		$('[data-result-variable]').data('result-variable', rv).text(numberFormat(rv) + ' 円');
+
+		rs += price('room') * (1 + price('deposit') + price('thx'));
+		rs += price('admin');
+		rs += parseInt($('input[name="data[Room][agent_charge]"]').val());
+		$('[data-result-static]').data('result-static', rs).text(numberFormat(rs) + ' 円');
+
+		rt = rs + rv;
+		$('[data-result-total]').data('result-total', rt).text(numberFormat(rt) + ' 円');
+		return;
+	}
+
+	function beforeCeil(num) {
+		return Math.floor(num * 100) / 100;
+	}
+
+	function repNumDecp(value) {
+		var nums = {"０":0, "１":1, "２":2, "３":3, "４":4, "５":5, "６":6, "７":7, "８":8, "９":9, "．":'.', "。":'.'};
+		for(var k in nums) {
+			value = value.replace(new RegExp(k, "g"), nums[k]);
+		}
+		value.replace(/[^0-9\.]/g , '');
+		return value;
+	}
+});
+
+function redisplay(type)
+{
+	switch (type) {
+		case 'address':
+			$("#boxWards :checked").each(function(){
+				$('#' + $(this).attr('id').replace('SearchWard', 'boxSearchWard')).toggle();
+			});
+			break;
+		case 'line':
+			$("#boxLines :checked").each(function(){
+				$('#' + $(this).attr('id').replace('SearchLine', 'boxLine')).toggle();
+			});
+			break;
+	}
+}
+$(function(){
+	});
+
+
+$("#sp-menu").change(function(){
+	var link = $("#sp-menu option:selected").val();
+		location.href = (link);
+	});
+
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-31688434-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+	</main>
+			</div>
+		</div>
+	</footer>
+</section>
+<div class="submenu-grounding"></div>
+<a id="backToTop" href="#" class="backtotop"><span class="css-icon chevron-up"></span></a>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/common.min.js?v=1.1.0"></script>
+<script src="/js/calculate.js?v=1.1.0"></script><script>
+
+
+<script src="/js/fess-search.js"></script>
+
+</body>
+
+<style>
+.form-control {
+  width: 75%
+}
+</style>
+</html>
