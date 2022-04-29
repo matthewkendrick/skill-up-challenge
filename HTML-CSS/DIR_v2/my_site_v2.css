@@ -569,6 +569,11 @@ textarea,
 /* END of Reset CSS */
 
 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 
 /* header {} */
 
@@ -587,6 +592,11 @@ nav .nav-link {
 
 main {
   height: fit-content;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
 }
 
 .main-visual {
@@ -629,4 +639,13 @@ main {
   border: solid 3px #ec715f;
   width: 70px;
 }
-/* footer {} */
+
+footer {
+  margin-top: auto;
+  padding: 20px 0;
+  font-size: 16px;
+  text-align: center;
+  color: #fafafa;
+  background-color: #ec715f;
+  height: 60px;
+}
