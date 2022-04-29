@@ -607,8 +607,9 @@ main {
   color: #fafafa;
 }
 
-section .portfolio {
+.portfolio {
   width: 920px;
+  text-align: center;
 }
 
 .section-title {
@@ -624,6 +625,7 @@ section .portfolio {
 }
 
 .section-title-border {
+  text-align: center;
   border: solid 3px #ec715f;
   width: 70px;
 }
