@@ -620,6 +620,20 @@ body {
 .portfolio {
   width: 920px;
   text-align: center;
+  padding-bottom: 30px;
+}
+
+.portfolio img {
+  height: 250px;
+  width: 300px;
+}
+
+.portfolio-imgs {
+  padding-bottom: 90px;
+}
+
+.img-space {
+  margin-bottom: 5px;
 }
 
 .section-title {
