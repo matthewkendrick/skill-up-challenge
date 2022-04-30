@@ -620,12 +620,13 @@ body {
 .portfolio {
   width: 920px;
   text-align: center;
-  padding-bottom: 30px;
+  padding: 90px;
 }
 
 .portfolio img {
   height: 250px;
   width: 300px;
+  margin-bottom: 10px;
 }
 
 .portfolio-imgs {
@@ -640,18 +641,49 @@ body {
   font-size: 32px;
   color: #000000;
   padding-bottom: 8px;
+  text-align: center;
 }
 
 .section-text {
   font-size: 16px;
   color: #000000;
   padding: 30px 0;
+  text-align: center;
 }
 
 .section-title-border {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   border: solid 3px #ec715f;
   width: 70px;
+}
+
+.feature {
+  padding: 90px 0;
+}
+
+.feature-item {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+.feature-item-box {
+  width: 320px;
+}
+
+.feature-item-2 {
+  padding: 0 10px;
+}
+
+.feature-title {
+  font-size: 20px;
+  color: #000000;
+  margin: 10px 0;
+}
+
+.feature-text {
+  text-align: left;
 }
 
 footer {
