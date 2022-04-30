@@ -617,8 +617,11 @@ body {
   color: #fafafa;
 }
 
-.portfolio {
+.container-portfolio {
   width: 920px;
+}
+
+.portfolio {
   text-align: center;
   padding: 90px;
 }
@@ -658,6 +661,10 @@ body {
   width: 70px;
 }
 
+.container-feature {
+  width: 980px;
+}
+
 .feature {
   padding: 90px 0;
 }
@@ -684,6 +691,10 @@ body {
 
 .feature-text {
   text-align: left;
+}
+
+.container-profile {
+  width: 1024px;
 }
 
 footer {
