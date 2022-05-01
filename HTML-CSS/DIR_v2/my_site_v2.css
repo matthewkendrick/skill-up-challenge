@@ -713,11 +713,11 @@ body {
 
 .profile {
   width: 1024px;
+  padding: 90px 0;
 }
 
 .profile-box {
   display: flex;
-  padding-bottom: 90px;
   justify-content: center;
 }
 
@@ -745,6 +745,7 @@ body {
 /* ------------------------------ */
 
 .contact {
+  padding: 90px 0;
   width: 800px;
 }
 
