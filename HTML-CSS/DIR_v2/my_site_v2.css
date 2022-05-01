@@ -740,6 +740,14 @@ body {
   border-radius: 50%;
 }
 
+/* ------------------------------ */
+/* --- Contact Section --- */
+/* ------------------------------ */
+
+.contact {
+  width: 800px;
+}
+
 footer {
   margin-top: auto;
   padding: 20px 0;
