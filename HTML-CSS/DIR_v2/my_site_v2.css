@@ -732,12 +732,45 @@ body {
 
 .profile-img {
   width: 512px;
+  text-align: center;
 }
 
 .profile-img img {
   height: 250px;
   width: 250px;
   border-radius: 50%;
+}
+
+.contact .title {
+  font-size: 20px;
+  padding-bottom: 5px;
+}
+
+.contact {
+  width: 800px;
+}
+
+.contact-item-all {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-item, .sns {
+  width: 400px;
+}
+
+.contact-item p:first-child {
+  padding-bottom: 20px;
+}
+
+.sns-item {
+  width: 400px;
+  display: flex;
+  font-size: 50px;
+}
+
+.sns-item .item-center {
+  padding: 0 20px;
 }
 
 /* ------------------------------ */
