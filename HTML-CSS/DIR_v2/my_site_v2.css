@@ -764,7 +764,6 @@ body {
 }
 
 .sns-item {
-  width: 400px;
   display: flex;
   font-size: 50px;
 }
