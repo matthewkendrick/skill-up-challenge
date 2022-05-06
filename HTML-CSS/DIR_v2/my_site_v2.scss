@@ -579,11 +579,10 @@ html, body {
 
 nav {
   background-color: #fc715f;
-}
-
-nav .nav-link {
-  font-size: 16px;
-  color: #fafafa;
+  }
+  .nav-link {
+    font-size: 16px;
+    color: #fafafa;
 }
 
 .navbar-brand img {
@@ -739,8 +738,13 @@ body {
   border-radius: 50%;
 }
 
+/* ------------------------------ */
+/* --- Contact Section --- */
+/* ------------------------------ */
+
 .contact {
   width: 800px;
+  padding: 90px;
   }
   .title {
   font-size: 20px;
@@ -763,19 +767,9 @@ body {
 .sns-item {
   display: flex;
   font-size: 50px;
-}
-
-.sns-item .item-center {
-  padding: 0 20px;
-}
-
-/* ------------------------------ */
-/* --- Contact Section --- */
-/* ------------------------------ */
-
-.contact {
-  padding: 90px 0;
-  width: 800px;
+  }
+  .item-center {
+    padding: 0 20px;
 }
 
 footer {

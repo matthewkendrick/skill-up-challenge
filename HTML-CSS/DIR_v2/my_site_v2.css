@@ -552,7 +552,7 @@ nav {
   background-color: #fc715f;
 }
 
-nav .nav-link {
+.nav-link {
   font-size: 16px;
   color: #fafafa;
 }
@@ -720,19 +720,23 @@ img {
   text-align: center;
 }
 
-.profile-img img {
+img {
   height: 250px;
   width: 250px;
   border-radius: 50%;
 }
 
-.contact .title {
-  font-size: 20px;
-  padding-bottom: 5px;
-}
-
+/* ------------------------------ */
+/* --- Contact Section --- */
+/* ------------------------------ */
 .contact {
   width: 800px;
+  padding: 90px;
+}
+
+.title {
+  font-size: 20px;
+  padding-bottom: 5px;
 }
 
 .contact-item-all {
@@ -759,16 +763,8 @@ img {
   font-size: 50px;
 }
 
-.sns-item .item-center {
+.item-center {
   padding: 0 20px;
-}
-
-/* ------------------------------ */
-/* --- Contact Section --- */
-/* ------------------------------ */
-.contact {
-  padding: 90px 0;
-  width: 800px;
 }
 
 footer {
