@@ -732,21 +732,19 @@ body {
 .profile-img {
   width: 512px;
   text-align: center;
-}
-
-.profile-img img {
+  }
+  img {
   height: 250px;
   width: 250px;
   border-radius: 50%;
 }
 
-.contact .title {
-  font-size: 20px;
-  padding-bottom: 5px;
-}
-
 .contact {
   width: 800px;
+  }
+  .title {
+  font-size: 20px;
+  padding-bottom: 5px;
 }
 
 .contact-item-all {
